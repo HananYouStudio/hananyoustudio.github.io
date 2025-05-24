@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mi Web Fluida</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -12,7 +13,7 @@
     }
 
     body, html {
-      font-family: Arial, sans-serif;
+      font-family: 'Nunito', sans-serif;
       scroll-behavior: smooth;
       color: #512012;
     }
@@ -65,15 +66,27 @@
       background-position: center;
       background-attachment: fixed;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
       text-align: center;
       padding-top: 60px;
     }
 
-    .hero h1 {
-      font-size: 3em;
-      text-shadow: 2px 2px 4px #000;
+    .hero .welcome {
+      font-family: 'Nunito', sans-serif;
+      font-size: 10px;
+    }
+
+    .hero .studio {
+      font-family: 'Playfair Display', serif;
+      font-size: 15px;
+    }
+
+    .hero .subtitle {
+      font-family: 'Nunito', sans-serif;
+      font-size: 11px;
+      margin-top: 5px;
     }
 
     /* CONTENIDO */
@@ -103,8 +116,16 @@
 
     /* RESPONSIVE */
     @media screen and (max-width: 768px) {
-      .hero h1 {
-        font-size: 2em;
+      .hero .welcome {
+        font-size: 12px;
+      }
+
+      .hero .studio {
+        font-size: 18px;
+      }
+
+      .hero .subtitle {
+        font-size: 13px;
       }
 
       header {
@@ -144,7 +165,10 @@
 
   <!-- Sección hero con parallax -->
   <section class="hero">
-    <h1>Bienvenido a HananYou Studio</h1>
+    <div class="welcome">HananYou Studio</div>
+    <div class="studio">HananYouStudio</div>
+    <div class="subtitle">Estudio de Diseño Gráfico</div>
+    <div class="subtitle">Un diseño que fluye con tus ideas</div>
   </section>
 
   <!-- Contenido principal -->
