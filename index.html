@@ -6,228 +6,33 @@
   <title>HananYouStudio</title>
   <link rel="icon" type="image/png" href="logo.png" />
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+  
+  <!-- Materialize CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body, html {
-      font-family: 'Nunito', sans-serif;
-      scroll-behavior: smooth;
-      color: #512012;
-    }
-    a {
-      color: #512012;
-      text-decoration: none;
-    }
-    /* HEADER */
-    header {
-      width: 100%;
-      background-color: #fbf4e8;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 10px 30px;
-      position: fixed;
-      top: 0;
-      z-index: 1001;
-    }
-    .logo {
-      font-family: 'Playfair Display', serif;
-      font-weight: bold;
-      font-size: 1.6em;
-    }
-    nav {
-      display: flex;
-      gap: 30px;
-    }
-    nav a {
-      font-size: 1em;
-      padding: 8px 12px;
-    }
-    .contacto {
-      border: 1px solid #000;
-      padding: 8px 12px;
-      border-radius: 4px;
-      font-weight: bold;
-    }
-    /* HERO PARALLAX */
-    .hero {
-      background-image: url('fondobeish.png');
-      height: 60vh;
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding-top: 60px;
-      line-height: 1.2;
-      color: #512012;
-    }
-    .hero .welcome {
-      font-family: 'Nunito', sans-serif;
-      font-size: 24px;
-      margin-bottom: 5px;
-    }
-    .hero .studio {
-      font-family: 'Playfair Display', serif;
-      font-size: 36px;
-      font-weight: 700;
-      margin-bottom: 5px;
-    }
-    .hero .subtitle {
-      font-family: 'Nunito', sans-serif;
-      font-size: 20px;
-      margin-bottom: 5px;
-      position: relative;
-      display: inline-block;
-    }
-    /* subrayado fluido */
-    .hero .subtitle::after {
-      content: '';
-      position: absolute;
-      width: 100%;
-      height: 5px;
-      background: linear-gradient(90deg, #ffb57a 0%, #f8d0aa 100%);
-      bottom: 0;
-      left: 0;
-      border-radius: 4px;
-      z-index: -1;
-      opacity: 0.6;
-      transform-origin: left;
-      transform: scaleX(1);
-      transition: transform 0.3s ease;
-    }
-    .hero .subtitle:hover::after {
-      transform: scaleX(1.1);
-    }
-    .hero .quote {
-      font-family: 'Nunito', sans-serif;
-      font-size: 18px;
-      font-style: italic;
-      margin-top: 5px;
-      max-width: 500px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    /* CONTENIDO */
-    .content {
-      padding: 40px 20px;
-      max-width: 1000px;
-      margin: auto;
-    }
-    .section-title {
-      font-family: 'Nunito', sans-serif;
-      font-size: 23px;
-      text-align: center;
-      margin-bottom: 15px;
-      font-weight: 600;
-    }
-    .section-text {
-      font-family: 'Nunito', sans-serif;
-      font-size: 13px;
-      text-align: justify;
-      margin: 10px 0 20px 0;
-      line-height: 1.5;
-      max-width: 900px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    /* Para el nombre en negrita y Playfair dentro del texto */
-    .highlight {
-      font-family: 'Playfair Display', serif;
-      font-weight: 700;
-    }
-    /* subrayado fluido naranja para 'Estudio de Diseño Gráfico' */
-    .underline-fluido {
-      position: relative;
-      display: inline-block;
-      padding-bottom: 3px;
-      margin-bottom: 5px;
-    }
-    .underline-fluido::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 6px;
-      background: linear-gradient(90deg, #ffb57a 0%, #f8d0aa 100%);
-      border-radius: 4px;
-      z-index: -1;
-      opacity: 0.6;
-      transform-origin: left;
-      transform: scaleX(1);
-      transition: transform 0.3s ease;
-    }
-    .underline-fluido:hover::after {
-      transform: scaleX(1.1);
-    }
-    /* tarjetas para fotos */
-    .photo-cards {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
+    /* Tus estilos previos aquí (header, hero, etc.) */
+
+    /* Ajustes para el carrusel */
+    .carousel {
+      height: 360px; /* altura fija para tus fotos */
       margin-top: 30px;
-      flex-wrap: wrap;
     }
-    .photo-card {
+    .carousel .carousel-item {
+      width: 280px !important; /* ancho fijo para cada imagen */
+    }
+    .carousel .carousel-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
       border: 1px solid #000;
-      width: 250px;
-      height: 350px;
-      background-color: #fff;
-      box-sizing: border-box;
-    }
-    /* SWITCH DE IDIOMA */
-    #language-switcher {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      z-index: 999;
-    }
-    #language-switcher img {
-      width: 40px;
-      cursor: pointer;
-    }
-    /* RESPONSIVE */
-    @media screen and (max-width: 768px) {
-      .hero .welcome {
-        font-size: 28px;
-      }
-      .hero .studio {
-        font-size: 42px;
-      }
-      .hero .subtitle {
-        font-size: 28px;
-      }
-      .hero .quote {
-        font-size: 22px;
-      }
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-      }
-      nav {
-        flex-wrap: wrap;
-        gap: 15px;
-      }
+      border-radius: 8px;
     }
   </style>
 </head>
 <body>
-  <!-- Botón fijo de idioma -->
-  <div id="language-switcher">
-    <a href="/en/index.html">
-      <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English" />
-    </a>
-  </div>
+  <!-- Tu header y hero aquí -->
 
-  <!-- Header fijo con navegación -->
   <header>
     <a href="/index.html" class="logo">HananYouStudio</a>
     <nav>
@@ -241,7 +46,6 @@
     <a href="#contacto" class="contacto">Contáctanos</a>
   </header>
 
-  <!-- Sección hero con parallax -->
   <section class="hero">
     <div class="welcome">Bienvenido a</div>
     <div class="studio">HananYouStudio</div>
@@ -249,7 +53,6 @@
     <div class="quote">«Un diseño que fluye con tus ideas»</div>
   </section>
 
-  <!-- Contenido principal -->
   <section class="content">
     <h2 id="acerca" class="section-title">Sobre nosotros</h2>
     <p class="section-text">
@@ -259,11 +62,32 @@
       Explora nuestros trabajos, elige un pack o pide algo único. Tú tienes la idea, nosotros la volvemos realidad visual con <span class="highlight">HananYouStudio</span>.
     </p>
 
-    <div class="photo-cards">
-      <div class="photo-card"></div>
-      <div class="photo-card"></div>
-      <div class="photo-card"></div>
+    <!-- Carrusel Materialize -->
+    <div class="carousel">
+      <a class="carousel-item" href="#one!"><img src="races.png" alt="Imagen 1" /></a>
+      <a class="carousel-item" href="#two!"><img src="revista.png" alt="Imagen 2" /></a>
+      <a class="carousel-item" href="#three!"><img src="tenis.png" alt="Imagen 3" /></a>
+      <a class="carousel-item" href="#four!"><img src="y2k.png" alt="Imagen 4" /></a>
+      <a class="carousel-item" href="#five!"><img src="ChatGPT Image May 25, 2025, 12_08_06 AM.png" alt="Imagen 5" /></a>
+      <a class="carousel-item" href="#six!"><img src="ChatGPT Image May 25, 2025, 12_05_38 AM.png" alt="Imagen 6" /></a>
+      <a class="carousel-item" href="#seven!"><img src="ChatGPT Image May 25, 2025, 12_36_41 AM.png" alt="Imagen 7" /></a>
     </div>
   </section>
+
+  <!-- Materialize JS y dependencias -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var elems = document.querySelectorAll('.carousel');
+      var instances = M.Carousel.init(elems, {
+        dist: -80,
+        shift: 5,
+        padding: 20,
+        numVisible: 3,
+        indicators: true,
+        duration: 300
+      });
+    });
+  </script>
 </body>
 </html>
