@@ -15,6 +15,12 @@
     body, html {
       font-family: Arial, sans-serif;
       scroll-behavior: smooth;
+      color: #512012;
+    }
+
+    a {
+      color: #512012;
+      text-decoration: none;
     }
 
     /* HEADER */
@@ -33,8 +39,6 @@
     .logo {
       font-weight: bold;
       font-size: 1.4em;
-      text-decoration: none;
-      color: black;
     }
 
     nav {
@@ -43,14 +47,12 @@
     }
 
     nav a {
-      text-decoration: none;
-      color: black;
       font-size: 1em;
       padding: 8px 12px;
     }
 
     .contacto {
-      border: 2px solid black;
+      border: 1px solid #000;
       padding: 8px 12px;
       border-radius: 4px;
       font-weight: bold;
@@ -66,7 +68,6 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      color: white;
       text-align: center;
       padding-top: 60px;
     }
