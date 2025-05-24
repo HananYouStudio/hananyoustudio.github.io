@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>HananYouStudio</title>
   <link rel="icon" type="image/png" href="logo.png" />
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
@@ -12,18 +12,15 @@
       padding: 0;
       box-sizing: border-box;
     }
-
     body, html {
       font-family: 'Nunito', sans-serif;
       scroll-behavior: smooth;
       color: #512012;
     }
-
     a {
       color: #512012;
       text-decoration: none;
     }
-
     /* HEADER */
     header {
       width: 100%;
@@ -36,30 +33,25 @@
       top: 0;
       z-index: 1001;
     }
-
     .logo {
       font-family: 'Playfair Display', serif;
       font-weight: bold;
       font-size: 1.6em;
     }
-
     nav {
       display: flex;
       gap: 30px;
     }
-
     nav a {
       font-size: 1em;
       padding: 8px 12px;
     }
-
     .contacto {
       border: 1px solid #000;
       padding: 8px 12px;
       border-radius: 4px;
       font-weight: bold;
     }
-
     /* HERO PARALLAX */
     .hero {
       background-image: url('fondobeish.png');
@@ -74,33 +66,60 @@
       text-align: center;
       padding-top: 60px;
       line-height: 1.2;
+      color: #512012;
     }
-
     .hero .welcome {
       font-family: 'Nunito', sans-serif;
-      font-size: 18px;
+      font-size: 24px;
+      margin-bottom: 5px;
     }
-
     .hero .studio {
       font-family: 'Playfair Display', serif;
-      font-size: 28px;
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 5px;
     }
-
     .hero .subtitle {
       font-family: 'Nunito', sans-serif;
-      font-size: 16px;
-      margin-top: 3px;
-      line-height: 1.2;
+      font-size: 20px;
+      margin-bottom: 5px;
+      position: relative;
+      display: inline-block;
     }
-
+    /* subrayado fluido */
+    .hero .subtitle::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(90deg, #ffb57a 0%, #f8d0aa 100%);
+      bottom: 0;
+      left: 0;
+      border-radius: 4px;
+      z-index: -1;
+      opacity: 0.6;
+      transform-origin: left;
+      transform: scaleX(1);
+      transition: transform 0.3s ease;
+    }
+    .hero .subtitle:hover::after {
+      transform: scaleX(1.1);
+    }
+    .hero .quote {
+      font-family: 'Nunito', sans-serif;
+      font-size: 18px;
+      font-style: italic;
+      margin-top: 5px;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
     /* CONTENIDO */
     .content {
       padding: 40px 20px;
       max-width: 1000px;
       margin: auto;
     }
-
-    /* NUEVOS ESTILOS PARA SOBRE NOSOTROS */
     .section-title {
       font-family: 'Nunito', sans-serif;
       font-size: 23px;
@@ -108,7 +127,6 @@
       margin-bottom: 15px;
       font-weight: 600;
     }
-
     .section-text {
       font-family: 'Nunito', sans-serif;
       font-size: 13px;
@@ -119,7 +137,37 @@
       margin-left: auto;
       margin-right: auto;
     }
-
+    /* Para el nombre en negrita y Playfair dentro del texto */
+    .highlight {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+    }
+    /* subrayado fluido naranja para 'Estudio de Diseño Gráfico' */
+    .underline-fluido {
+      position: relative;
+      display: inline-block;
+      padding-bottom: 3px;
+      margin-bottom: 5px;
+    }
+    .underline-fluido::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 6px;
+      background: linear-gradient(90deg, #ffb57a 0%, #f8d0aa 100%);
+      border-radius: 4px;
+      z-index: -1;
+      opacity: 0.6;
+      transform-origin: left;
+      transform: scaleX(1);
+      transition: transform 0.3s ease;
+    }
+    .underline-fluido:hover::after {
+      transform: scaleX(1.1);
+    }
+    /* tarjetas para fotos */
     .photo-cards {
       display: flex;
       justify-content: center;
@@ -127,7 +175,6 @@
       margin-top: 30px;
       flex-wrap: wrap;
     }
-
     .photo-card {
       border: 1px solid #000;
       width: 250px;
@@ -135,7 +182,6 @@
       background-color: #fff;
       box-sizing: border-box;
     }
-
     /* SWITCH DE IDIOMA */
     #language-switcher {
       position: fixed;
@@ -143,47 +189,32 @@
       right: 20px;
       z-index: 999;
     }
-
     #language-switcher img {
       width: 40px;
       cursor: pointer;
     }
-
     /* RESPONSIVE */
     @media screen and (max-width: 768px) {
       .hero .welcome {
-        font-size: 20px;
+        font-size: 28px;
       }
-
       .hero .studio {
-        font-size: 30px;
+        font-size: 42px;
       }
-
       .hero .subtitle {
-        font-size: 18px;
+        font-size: 28px;
       }
-
+      .hero .quote {
+        font-size: 22px;
+      }
       header {
         flex-direction: column;
         align-items: flex-start;
         gap: 10px;
       }
-
       nav {
         flex-wrap: wrap;
         gap: 15px;
-      }
-
-      .photo-cards {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .photo-card {
-        width: 90%;
-        height: auto;
-        aspect-ratio: 3 / 4;
-        margin-bottom: 15px;
       }
     }
   </style>
@@ -214,8 +245,8 @@
   <section class="hero">
     <div class="welcome">Bienvenido a</div>
     <div class="studio">HananYouStudio</div>
-    <div class="subtitle">Estudio de Diseño Gráfico</div>
-    <div class="subtitle">«Un diseño que fluye con tus ideas»</div>
+    <div class="subtitle underline-fluido">Estudio de Diseño Gráfico</div>
+    <div class="quote">«Un diseño que fluye con tus ideas»</div>
   </section>
 
   <!-- Contenido principal -->
@@ -225,7 +256,7 @@
       Ofrecemos servicios de diseño gráfico creativos y completamente personalizados, adaptándonos al estilo de cada cliente como el agua a su recipiente.
     </p>
     <p class="section-text">
-      Explora nuestros trabajos, elige un pack o pide algo único. Tú tienes la idea, nosotros la volvemos realidad visual.
+      Explora nuestros trabajos, elige un pack o pide algo único. Tú tienes la idea, nosotros la volvemos realidad visual con <span class="highlight">HananYouStudio</span>.
     </p>
 
     <div class="photo-cards">
