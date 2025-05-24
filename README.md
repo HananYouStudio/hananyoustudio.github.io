@@ -6,22 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mi Web Fluida</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body, html {
       font-family: Arial, sans-serif;
       scroll-behavior: smooth;
       color: #512012;
     }
-
-    a {
-      color: #512012;
-      text-decoration: none;
-    }
+    a { color: #512012; text-decoration: none; }
 
     /* HEADER */
     header {
@@ -36,10 +27,7 @@
       z-index: 1001;
     }
 
-    .logo {
-      font-weight: bold;
-      font-size: 1.4em;
-    }
+    .logo { font-weight: bold; font-size: 1.4em; }
 
     nav {
       display: flex;
@@ -122,35 +110,23 @@
   </style>
 </head>
 <body>
-  <!-- Botón fijo de idioma -->
-  <div id="language-switcher">
-    <a href="/en/index.html">
-      <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English">
-    </a>
-  </div>
-
-  <!-- Header fijo con navegación -->
   <header>
-    <a href="/index.html" class="logo">HananYouStudio</a>
+    <div class="logo">HananYou Studio</div>
     <nav>
-      <a href="#inicio">Inicio</a>
-      <a href="#acerca">Acerca de</a>
-      <a href="#servicios">Servicios</a>
-      <a href="#resenas">Reseñas</a>
+      <a href="#">Inicio</a>
+      <a href="#">Servicios</a>
+      <a href="#">Proyectos</a>
+      <a href="#" class="contacto">Contacto</a>
     </nav>
-    <a href="#contacto" class="contacto">Contáctanos</a>
   </header>
 
-  <!-- Sección hero con parallax -->
   <section class="hero">
     <h1>Bienvenido a HananYou Studio</h1>
   </section>
 
-  <!-- Contenido principal -->
   <section class="content">
-    <h2 id="acerca">Sobre nosotros</h2>
-    <p>Ofrecemos servicios de diseño gráfico creativos y completamente personalizados, adaptándonos al estilo de cada cliente como el agua a su recipiente.</p>
-    <p>Explora nuestros trabajos, elige un pack o pide algo único. Tú tienes la idea, nosotros la volvemos realidad visual.</p>
+    <p>Diseño gráfico fluido, creativo y 100% adaptado a tu estilo.</p>
+    <p>Desde branding completo hasta campañas visuales para redes y streaming.</p>
   </section>
 </body>
 </html>
