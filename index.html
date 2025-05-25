@@ -408,5 +408,13 @@
       document.getElementById("lang-list").classList.toggle("show");
     }
   </script>
+  <script>
+  // Evita clic derecho en imágenes
+  document.addEventListener('contextmenu', function (e) {
+    if (e.target.tagName === 'IMG') {
+      e.preventDefault();
+    }
+  });
+</script>
 </body>
 </html>
