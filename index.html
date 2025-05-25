@@ -8,102 +8,115 @@
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
   <style>
-    /* Se mantienen todos los estilos anteriores... */
+    /* ...estilos anteriores... */
 
-    .section-heading {
-      text-align: center;
-      font-family: 'Playfair Display', serif;
-      font-size: 32px;
-      margin-top: 60px;
-      margin-bottom: 20px;
-      color: #512012;
-    }
-
-    .about-section {
-      max-width: 900px;
-      margin: 30px auto;
-      font-size: 14px;
-      text-align: justify;
-      line-height: 1.6;
-      color: #512012;
-      padding: 0 20px;
-    }
-
-    .reviews-section {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      margin: 60px auto;
-      max-width: 1000px;
-    }
-
-    .phone-frame {
-      width: 320px;
-      height: 600px;
-      background: url('phone-frame.png') no-repeat center center;
-      background-size: contain;
-      position: relative;
-    }
-
-    .reviews-content {
-      position: absolute;
-      top: 60px;
-      left: 30px;
-      width: 260px;
-      height: 480px;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+    /* Idioma flotante lateral unificado */
+    #language-toggle {
+      position: fixed;
+      left: 10px;
+      top: 40%;
+      z-index: 999;
       font-family: 'Nunito', sans-serif;
+    }
+
+    .lang-btn {
+      background-color: rgba(128, 128, 128, 0.8);
+      color: white;
+      padding: 6px 10px;
       font-size: 13px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      width: 80px;
+    }
+
+    .lang-list {
+      margin-top: 5px;
+      background-color: rgba(240, 240, 240, 0.95);
+      padding: 5px;
+      border-radius: 6px;
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      font-size: 13px;
+      animation: fadeDown 0.3s ease-in-out forwards;
+    }
+
+    .lang-list a {
+      text-decoration: none;
       color: #512012;
-      padding: 10px;
+      font-family: 'Nunito', sans-serif;
     }
 
-    .review {
-      opacity: 0;
-      transition: opacity 1s ease;
+    .lang-list.show {
+      display: flex;
     }
 
-    .review.active {
-      opacity: 1;
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
-    .review + .review {
-      margin-top: 15px;
+    @media screen and (max-width: 768px) {
+      .lang-btn {
+        font-size: 12px;
+        width: 70px;
+      }
     }
   </style>
 </head>
 <body>
-  <!-- contenido anterior ... -->
 
-  <!-- Texto "Explora mis diseños" -->
-  <h2 class="section-heading">Explora mis diseños</h2>
-
-  <!-- Texto de presentación -->
-  <div class="about-section">
-    <p><strong>¡Hola! Soy Han</strong>, la mente (y las manos) creativas detrás de <strong>HananYouStudio</strong>.</p>
-    <p>Como sugiere el nombre, esto va de Han... y de ti: un estudio donde el diseño fluye con tus ideas.</p>
-    <p>Con años de experiencia en diseño gráfico, he aprendido que un buen diseño no consiste en imponer un estilo, sino en adaptarse con creatividad, técnica y precisión a lo que cada cliente realmente necesita.</p>
-    <p>En <strong>HananYouStudio</strong>, el diseño es <em>fluido</em>: se moldea a ti. Tanto si tienes una idea clara como si apenas estás empezando, te ofrezco asesoría personalizada, propuestas visuales sólidas y resultados que comunican exactamente lo que quieres expresar.</p>
-  </div>
-
-  <!-- Sección de Reseñas -->
-  <h2 class="section-heading">Reseñas de nuestros clientes</h2>
-  <div class="reviews-section">
-    <div class="phone-frame">
-      <div class="reviews-content" id="reviews-content">
-        <div class="review active">"Excelente trato y diseños con muchísima personalidad. Totalmente recomendada!"</div>
-        <div class="review active">"Captó mi idea mejor de lo que yo mismo podía imaginar. Un 10."</div>
-        <div class="review active">"En cada detalle se nota la pasión. Volveré a encargarle otro trabajo."</div>
-        <div class="review">"Rápida, cercana y con un estilo espectacular. Gracias Han!"</div>
-        <div class="review">"Transformó un boceto muy simple en algo digno de portada. Brutal."</div>
-        <div class="review">"La web quedó preciosa y funcional. Mis clientes también lo notaron."</div>
-      </div>
+  <!-- Idiomas -->
+  <div id="language-toggle">
+    <button class="lang-btn" onclick="toggleLanguages()">Idiomas</button>
+    <div class="lang-list" id="lang-list">
+      <a href="#">Español (ES)</a>
+      <a href="#">Inglés (EN)</a>
+      <a href="#">Francés (FR)</a>
+      <a href="#">Italiano (IT)</a>
+      <a href="#">Alemán (DE)</a>
+      <a href="#">Ruso (RU)</a>
+      <a href="#">Coreano (KO)</a>
+      <a href="#">Japonés (JA)</a>
     </div>
   </div>
+
+  <!-- Header -->
+  <header>
+    <a href="#inicio" class="logo">HananYouStudio</a>
+    <nav>
+      <a href="#inicio">Inicio</a>
+      <a href="#acerca">Acerca de...</a>
+      <a href="#resenas">Reseñas</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#catalogo">Catálogo</a>
+      <a href="#info">Info</a>
+    </nav>
+    <a href="#contacto" class="contacto">Contáctanos</a>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" id="inicio">
+    <div class="welcome">Bienvenido a</div>
+    <div class="studio">HananYouStudio</div>
+    <div class="subtitle">Estudio de Diseño Gráfico</div>
+    <div class="quote">«Un diseño que fluye con tus ideas»</div>
+  </section>
+
+  <!-- Contenido -->
+  <section class="content">
+    <h2 id="acerca" class="section-title">Acerca de nuestro trabajo</h2>
+    <p class="section-text">
+      Ofrecemos servicios de diseño gráfico creativos y completamente personalizados, adaptándonos al estilo de cada cliente como el agua a su recipiente.
+    </p>
+    <p class="section-text">
+      Explora nuestros trabajos, elige un pack o pide algo único. Tú tienes la idea, nosotros la volvemos realidad visual con <span class="highlight">HananYouStudio</span>.
+    </p>
+  </section>
+
+  <!-- Resto del contenido se mantiene igual... -->
 
   <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
@@ -135,15 +148,13 @@
       },
     });
 
-    // Mostrar/Ocultar idiomas
     function toggleLanguages() {
       document.getElementById("lang-list").classList.toggle("show");
     }
 
-    // Animación de reseñas
+    // Reseñas (se mantiene igual)
     const reviews = document.querySelectorAll('.review');
     let index = 0;
-
     function cycleReviews() {
       reviews.forEach(r => r.classList.remove('active'));
       for (let i = 0; i < 3; i++) {
@@ -152,7 +163,6 @@
       }
       index = (index + 3) % reviews.length;
     }
-
     setInterval(cycleReviews, 5000);
   </script>
 </body>
