@@ -184,11 +184,15 @@
       transition: transform 0.3s ease;
     }
 
-    .carousel-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
+   .carousel-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  user-select: none;
+  pointer-events: none;
+  -webkit-user-drag: none;
+}
     }
 
     .carousel-button {
@@ -302,6 +306,39 @@
         width: 70px;
       }
     }
+    .modern-carousel {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 20px 10px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.modern-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-image {
+  flex: 0 0 auto;
+  width: 150px;
+  height: 200px;
+  border-radius: 20px;
+  overflow: hidden;
+  scroll-snap-align: start;
+  transition: transform 0.3s ease;
+}
+
+.carousel-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  user-select: none;
+  pointer-events: none;
+  -webkit-user-drag: none;
+  display: block;
+}
   </style>
 </head>
 <body>
@@ -335,13 +372,15 @@
     <a href="#contacto" class="contacto">Contáctanos</a>
   </header>
 
-  <!-- Hero -->
-  <section class="hero" id="inicio">
-    <div class="welcome">Bienvenido a</div>
-    <div class="studio">HananYouStudio</div>
-    <div class="subtitle">Estudio de Diseño Gráfico</div>
-    <div class="quote">«Un diseño que fluye con tus ideas»</div>
-  </section>
+  <div class="modern-carousel" id="modern-carousel">
+  <div class="carousel-image"><img src="yamaha.png" alt="Diseño Yamaha" /></div>
+  <div class="carousel-image"><img src="tenis.png" alt="Diseño deportivo" /></div>
+  <div class="carousel-image"><img src="tokyodrift.png" alt="Diseño Y2K" /></div>
+  <div class="carousel-image"><img src="revista.png" alt="Diseño deportivo" /></div>
+  <div class="carousel-image"><img src="rock.png" alt="Cartel Rock" /></div>
+  <div class="carousel-image"><img src="cutie.jpeg" alt="Diseño deportivo" /></div>
+  <div class="carousel-image"><img src="anime.png" alt="Diseño deportivo" /></div>
+</div>
 
   <!-- Contenido -->
   <section class="content">
@@ -409,7 +448,7 @@
     }
   </script>
   <script>
-  // Evita clic derecho en imágenes
+  // Bloquea clic derecho en imágenes
   document.addEventListener('contextmenu', function (e) {
     if (e.target.tagName === 'IMG') {
       e.preventDefault();
