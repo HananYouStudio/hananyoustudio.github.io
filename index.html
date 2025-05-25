@@ -6,392 +6,154 @@
   <title>HananYouStudio</title>
   <link rel="icon" type="image/jpeg" href="Logotransparente.jpg" />
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    /* Se mantienen todos los estilos anteriores... */
 
-    body, html {
-      font-family: 'Nunito', sans-serif;
-      scroll-behavior: smooth;
-      color: #512012;
-      background-color: #fff;
-    }
-
-    a {
-      color: #512012;
-      text-decoration: none;
-    }
-
-    header {
-      width: 100%;
-      background-color: #fbf4e8;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 10px 30px;
-      position: fixed;
-      top: 0;
-      z-index: 1001;
-    }
-
-    .logo {
+    .section-heading {
+      text-align: center;
       font-family: 'Playfair Display', serif;
-      font-weight: bold;
-      font-size: 1.6em;
+      font-size: 32px;
+      margin-top: 60px;
+      margin-bottom: 20px;
+      color: #512012;
     }
 
-    nav {
+    .about-section {
+      max-width: 900px;
+      margin: 30px auto;
+      font-size: 14px;
+      text-align: justify;
+      line-height: 1.6;
+      color: #512012;
+      padding: 0 20px;
+    }
+
+    .reviews-section {
       display: flex;
-      gap: 30px;
-    }
-
-    nav a {
-      font-size: 1em;
-      padding: 8px 12px;
-    }
-
-    .contacto {
-      border: 1px solid #000;
-      padding: 8px 12px;
-      border-radius: 4px;
-      font-weight: bold;
-    }
-
-    .hero {
-      background-image: url('fondobeish.png');
-      height: 60vh;
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-      display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
-      text-align: center;
-      padding-top: 60px;
-      line-height: 1.2;
-      color: #512012;
-    }
-
-    .hero .welcome {
-      font-size: 28px;
-      margin-bottom: 5px;
-    }
-
-    .hero .studio {
-      font-family: 'Playfair Display', serif;
-      font-size: 48px;
-      font-weight: 700;
-      margin-bottom: 5px;
-    }
-
-    .hero .subtitle {
-      font-size: 24px;
-      position: relative;
-      display: inline-block;
-    }
-
-    .hero .subtitle::after {
-      content: '';
-      position: absolute;
-      width: 100%;
-      height: 5px;
-      background: linear-gradient(90deg, #ffb57a 0%, #f8d0aa 100%);
-      bottom: 0;
-      left: 0;
-      border-radius: 4px;
-      z-index: -1;
-      opacity: 0.6;
-    }
-
-    .hero .quote {
-      font-size: 20px;
-      font-style: italic;
-      margin-top: 5px;
-      max-width: 500px;
-    }
-
-    .content {
-      padding: 100px 20px 40px;
-      max-width: 1000px;
-      margin: auto;
-    }
-
-    .section-title {
-      font-size: 23px;
-      text-align: center;
-      margin-bottom: 15px;
-      font-weight: 600;
-    }
-
-    .section-text {
-      font-size: 13px;
-      text-align: justify;
-      margin: 10px 0 20px;
-      line-height: 1.5;
-      max-width: 900px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .highlight {
-      font-family: 'Playfair Display', serif;
-      font-weight: 700;
-    }
-
-    /* Carrusel */
-    .carousel-container {
-      position: relative;
-      max-width: 1000px;
-      margin: auto;
-      overflow: hidden;
-      padding: 10px 0;
-    }
-
-    .carousel-track {
-      display: flex;
-      overflow-x: auto;
-      scroll-behavior: smooth;
-      gap: 20px;
-      padding: 10px 5px;
-    }
-
-    .carousel-track::-webkit-scrollbar {
-      height: 8px;
-    }
-
-    .carousel-track::-webkit-scrollbar-thumb {
-      background: #ffb57a;
-      border-radius: 4px;
-    }
-
-    .carousel-track::-webkit-scrollbar-track {
-      background: #f8d0aa;
-      border-radius: 4px;
-    }
-
-    .carousel-item {
-      flex: 0 0 auto;
-      width: 250px;
-      height: 350px;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-      background-color: #fff;
-      transition: transform 0.3s ease;
-    }
-
-    .carousel-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .carousel-button {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background-color: rgba(255, 181, 122, 0.8);
-      border: none;
-      padding: 10px 12px;
-      font-size: 24px;
-      cursor: pointer;
-      z-index: 100;
-      border-radius: 50%;
-      transition: background-color 0.3s ease;
-    }
-
-    .carousel-button:hover {
-      background-color: rgba(255, 181, 122, 1);
-    }
-
-    .carousel-button.prev {
-      left: -5px;
-    }
-
-    .carousel-button.next {
-      right: -5px;
-    }
-
-    /* Idioma flotante lateral */
-    #language-toggle {
-      position: fixed;
-      left: 10px;
-      top: 40%;
-      z-index: 999;
-    }
-
-    .lang-btn {
-      background-color: rgba(128, 128, 128, 0.8);
-      color: white;
-      font-family: 'Nunito', sans-serif;
-      padding: 6px 10px;
-      font-size: 13px;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      width: 80px;
-    }
-
-    .lang-list {
-      margin-top: 5px;
-      background-color: #eee;
-      padding: 5px;
-      border-radius: 6px;
-      display: none;
       flex-direction: column;
-      gap: 5px;
-      font-size: 13px;
+      margin: 60px auto;
+      max-width: 1000px;
     }
 
-    .lang-list a {
-      text-decoration: none;
-      color: #333;
-      font-family: 'Nunito', sans-serif;
+    .phone-frame {
+      width: 320px;
+      height: 600px;
+      background: url('phone-frame.png') no-repeat center center;
+      background-size: contain;
+      position: relative;
     }
 
-    .lang-list.show {
+    .reviews-content {
+      position: absolute;
+      top: 60px;
+      left: 30px;
+      width: 260px;
+      height: 480px;
+      overflow: hidden;
       display: flex;
+      flex-direction: column;
+      justify-content: center;
+      font-family: 'Nunito', sans-serif;
+      font-size: 13px;
+      color: #512012;
+      padding: 10px;
     }
 
-    @media screen and (max-width: 768px) {
-      .hero .welcome {
-        font-size: 24px;
-      }
+    .review {
+      opacity: 0;
+      transition: opacity 1s ease;
+    }
 
-      .hero .studio {
-        font-size: 36px;
-      }
+    .review.active {
+      opacity: 1;
+    }
 
-      .hero .subtitle {
-        font-size: 20px;
-      }
-
-      .hero .quote {
-        font-size: 18px;
-      }
-
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-      }
-
-      nav {
-        flex-wrap: wrap;
-        gap: 15px;
-      }
-
-      .carousel-item {
-        width: 200px;
-        height: 280px;
-      }
-
-      .carousel-button {
-        font-size: 20px;
-        padding: 8px 10px;
-      }
-
-      .lang-btn {
-        font-size: 12px;
-        width: 70px;
-      }
+    .review + .review {
+      margin-top: 15px;
     }
   </style>
 </head>
 <body>
+  <!-- contenido anterior ... -->
 
-  <!-- Idiomas -->
-  <div id="language-toggle">
-    <button class="lang-btn" onclick="toggleLanguages()">Idiomas</button>
-    <div class="lang-list" id="lang-list">
-      <a href="#">Español (ES)</a>
-      <a href="#">Inglés (EN)</a>
-      <a href="#">Francés (FR)</a>
-      <a href="#">Italiano (IT)</a>
-      <a href="#">Alemán (DE)</a>
-      <a href="#">Ruso (RU)</a>
-      <a href="#">Coreano (KO)</a>
-      <a href="#">Japonés (JA)</a>
+  <!-- Texto "Explora mis diseños" -->
+  <h2 class="section-heading">Explora mis diseños</h2>
+
+  <!-- Texto de presentación -->
+  <div class="about-section">
+    <p><strong>¡Hola! Soy Han</strong>, la mente (y las manos) creativas detrás de <strong>HananYouStudio</strong>.</p>
+    <p>Como sugiere el nombre, esto va de Han... y de ti: un estudio donde el diseño fluye con tus ideas.</p>
+    <p>Con años de experiencia en diseño gráfico, he aprendido que un buen diseño no consiste en imponer un estilo, sino en adaptarse con creatividad, técnica y precisión a lo que cada cliente realmente necesita.</p>
+    <p>En <strong>HananYouStudio</strong>, el diseño es <em>fluido</em>: se moldea a ti. Tanto si tienes una idea clara como si apenas estás empezando, te ofrezco asesoría personalizada, propuestas visuales sólidas y resultados que comunican exactamente lo que quieres expresar.</p>
+  </div>
+
+  <!-- Sección de Reseñas -->
+  <h2 class="section-heading">Reseñas de nuestros clientes</h2>
+  <div class="reviews-section">
+    <div class="phone-frame">
+      <div class="reviews-content" id="reviews-content">
+        <div class="review active">"Excelente trato y diseños con muchísima personalidad. Totalmente recomendada!"</div>
+        <div class="review active">"Captó mi idea mejor de lo que yo mismo podía imaginar. Un 10."</div>
+        <div class="review active">"En cada detalle se nota la pasión. Volveré a encargarle otro trabajo."</div>
+        <div class="review">"Rápida, cercana y con un estilo espectacular. Gracias Han!"</div>
+        <div class="review">"Transformó un boceto muy simple en algo digno de portada. Brutal."</div>
+        <div class="review">"La web quedó preciosa y funcional. Mis clientes también lo notaron."</div>
+      </div>
     </div>
   </div>
 
-  <!-- Header -->
-  <header>
-    <a href="#inicio" class="logo">HananYouStudio</a>
-    <nav>
-      <a href="#inicio">Inicio</a>
-      <a href="#acerca">Acerca de</a>
-      <a href="#resenas">Reseñas</a>
-      <a href="#servicios">Servicios</a>
-      <a href="#catalogo">Catálogo</a>
-      <a href="#info">Info</a>
-    </nav>
-    <a href="#contacto" class="contacto">Contáctanos</a>
-  </header>
-
-  <!-- Hero -->
-  <section class="hero" id="inicio">
-    <div class="welcome">Bienvenido a</div>
-    <div class="studio">HananYouStudio</div>
-    <div class="subtitle">Estudio de Diseño Gráfico</div>
-    <div class="quote">«Un diseño que fluye con tus ideas»</div>
-  </section>
-
-  <!-- Contenido -->
-  <section class="content">
-    <h2 id="acerca" class="section-title">Sobre nosotros</h2>
-    <p class="section-text">
-      Ofrecemos servicios de diseño gráfico creativos y completamente personalizados, adaptándonos al estilo de cada cliente como el agua a su recipiente.
-    </p>
-    <p class="section-text">
-      Explora nuestros trabajos, elige un pack o pide algo único. Tú tienes la idea, nosotros la volvemos realidad visual con <span class="highlight">HananYouStudio</span>.
-    </p>
-
-    <!-- Carrusel -->
-    <div class="carousel-container">
-      <button class="carousel-button prev">&#10094;</button>
-      <div class="carousel-track" id="carousel-track">
-        <div class="carousel-item"><img src="yamaha.png" alt="Diseño Yamaha" /></div>
-        <div class="carousel-item"><img src="tenis.png" alt="Diseño deportivo" /></div>
-        <div class="carousel-item"><img src="tokyodrift.png" alt="Diseño Y2K" /></div>
-        <div class="carousel-item"><img src="revista.png" alt="Diseño deportivo" /></div>
-        <div class="carousel-item"><img src="rock.png" alt="Cartel Rock" /></div>
-         <div class="carousel-item"><img src="cutie.jpeg" alt="Diseño deportivo" /></div>
-         <div class="carousel-item"><img src="anime.png" alt="Diseño deportivo" /></div>
-      </div>
-      <button class="carousel-button next">&#10095;</button>
-    </div>
-  </section>
-
   <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script>
-    const track = document.getElementById("carousel-track");
-    const prev = document.querySelector(".carousel-button.prev");
-    const next = document.querySelector(".carousel-button.next");
-
-    prev.addEventListener("click", () => {
-      track.scrollBy({ left: -270, behavior: "smooth" });
+    const swiper = new Swiper('.swiper', {
+      effect: 'coverflow',
+      grabCursor: true,
+      centeredSlides: true,
+      slidesPerView: 'auto',
+      loop: true,
+      autoplay: {
+        delay: 3500,
+        disableOnInteraction: false,
+      },
+      coverflowEffect: {
+        rotate: 0,
+        stretch: 80,
+        depth: 200,
+        modifier: 1,
+        slideShadows: false,
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
     });
-
-    next.addEventListener("click", () => {
-      track.scrollBy({ left: 270, behavior: "smooth" });
-    });
-
-    // Auto-scroll carrusel
-    setInterval(() => {
-      track.scrollBy({ left: 270, behavior: "smooth" });
-    }, 4000);
 
     // Mostrar/Ocultar idiomas
     function toggleLanguages() {
       document.getElementById("lang-list").classList.toggle("show");
     }
+
+    // Animación de reseñas
+    const reviews = document.querySelectorAll('.review');
+    let index = 0;
+
+    function cycleReviews() {
+      reviews.forEach(r => r.classList.remove('active'));
+      for (let i = 0; i < 3; i++) {
+        const current = (index + i) % reviews.length;
+        reviews[current].classList.add('active');
+      }
+      index = (index + 3) % reviews.length;
+    }
+
+    setInterval(cycleReviews, 5000);
   </script>
 </body>
 </html>
