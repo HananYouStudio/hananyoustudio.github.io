@@ -127,260 +127,80 @@
       font-weight: 600;
     }
 
-    .section-text {
-      font-size: 13px;
-      text-align: justify;
-      margin: 10px 0 20px;
-      line-height: 1.5;
-      max-width: 900px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .highlight {
-      font-family: 'Playfair Display', serif;
-      font-weight: 700;
-    }
-
-    /* Carrusel */
-    .carousel-container {
-      position: relative;
-      max-width: 1000px;
-      margin: auto;
-      overflow: hidden;
-      padding: 10px 0;
-    }
-
-    .carousel-track {
+    .showcase-carousel {
       display: flex;
       overflow-x: auto;
-      scroll-behavior: smooth;
-      gap: 20px;
-      padding: 10px 5px;
+      gap: 24px;
+      padding: 20px 0;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
     }
 
-    .carousel-track::-webkit-scrollbar {
-      height: 8px;
+    .showcase-carousel::-webkit-scrollbar {
+      display: none;
     }
 
-    .carousel-track::-webkit-scrollbar-thumb {
-      background: #ffb57a;
-      border-radius: 4px;
-    }
-
-    .carousel-track::-webkit-scrollbar-track {
-      background: #f8d0aa;
-      border-radius: 4px;
-    }
-
-    .carousel-item {
+    .showcase-item {
       flex: 0 0 auto;
-      width: 250px;
-      height: 350px;
-      border-radius: 12px;
+      width: 160px;
+      height: 240px;
+      border-radius: 24px;
       overflow: hidden;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-      background-color: #fff;
+      scroll-snap-align: start;
       transition: transform 0.3s ease;
     }
 
-   .carousel-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  user-select: none;
-  pointer-events: none;
-  -webkit-user-drag: none;
-}
+    .showcase-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      user-select: none;
+      pointer-events: none;
+      -webkit-user-drag: none;
+      display: block;
+      border-radius: 24px;
     }
 
-    .carousel-button {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background-color: rgba(255, 181, 122, 0.8);
-      border: none;
-      padding: 10px 12px;
-      font-size: 24px;
-      cursor: pointer;
-      z-index: 100;
-      border-radius: 50%;
-      transition: background-color 0.3s ease;
-    }
-
-    .carousel-button:hover {
-      background-color: rgba(255, 181, 122, 1);
-    }
-
-    .carousel-button.prev {
-      left: -5px;
-    }
-
-    .carousel-button.next {
-      right: -5px;
-    }
-
-    /* Idioma flotante lateral */
-    #language-toggle {
-      position: fixed;
-      left: 10px;
-      top: 40%;
-      z-index: 999;
-    }
-
-    .lang-btn {
-      background-color: rgba(128, 128, 128, 0.8);
-      color: white;
-      font-family: 'Nunito', sans-serif;
-      padding: 6px 10px;
-      font-size: 13px;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      width: 80px;
-    }
-
-    .lang-list {
-      margin-top: 5px;
-      background-color: #eee;
-      padding: 5px;
-      border-radius: 6px;
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      font-size: 13px;
-    }
-
-    .lang-list a {
-      text-decoration: none;
-      color: #333;
-      font-family: 'Nunito', sans-serif;
-    }
-
-    .lang-list.show {
-      display: flex;
-    }
-
-    @media screen and (max-width: 768px) {
-      .hero .welcome {
-        font-size: 24px;
-      }
-
-      .hero .studio {
-        font-size: 36px;
-      }
-
-      .hero .subtitle {
-        font-size: 20px;
-      }
-
-      .hero .quote {
-        font-size: 18px;
-      }
-
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-      }
-
-      nav {
-        flex-wrap: wrap;
-        gap: 15px;
-      }
-
-      .carousel-item {
-        width: 200px;
-        height: 280px;
-      }
-
-      .carousel-button {
-        font-size: 20px;
-        padding: 8px 10px;
-      }
-
-      .lang-btn {
-        font-size: 12px;
-        width: 70px;
-      }
-    }
-    .showcase-carousel {
-  display: flex;
-  overflow-x: auto;
-  gap: 24px;
-  padding: 20px 0;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
-}
-
-.showcase-carousel::-webkit-scrollbar {
-  display: none;
-}
-
-.showcase-item {
-  flex: 0 0 auto;
-  width: 160px;
-  height: 240px;
-  border-radius: 24px;
-  overflow: hidden;
-  scroll-snap-align: start;
-  transition: transform 0.3s ease;
-}
-
-.showcase-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  user-select: none;
-  pointer-events: none;
-  -webkit-user-drag: none;
-  display: block;
-  border-radius: 24px;
-}
     .presentacion {
-  max-width: 700px;
-  margin: 80px auto;
-  padding: 0 20px;
-  font-size: 16px;
-  line-height: 1.7;
-  color: #512012;
-  text-align: left;
-}
+      max-width: 700px;
+      margin: 80px auto;
+      padding: 0 20px;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #512012;
+      text-align: left;
+    }
 
-.presentacion h2.presentacion-titulo {
-  font-size: 18px;
-  font-weight: 600;
-  margin-bottom: 10px;
-  text-align: center;
-}
+    .presentacion h2.presentacion-titulo {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 10px;
+      text-align: center;
+    }
 
-.presentacion h1.presentacion-logo {
-  font-family: 'Playfair Display', serif;
-  font-size: 28px;
-  text-align: center;
-  color: #512012;
-  margin-bottom: 25px;
-}
+    .presentacion h1.presentacion-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      text-align: center;
+      color: #512012;
+      margin-bottom: 25px;
+    }
 
-.presentacion p {
-  margin-bottom: 16px;
-  text-align: justify;
-}
+    .presentacion p {
+      margin-bottom: 16px;
+      text-align: justify;
+    }
 
-.subrayado {
-  background-color: #f8d0aa;
-  padding: 2px 6px;
-  border-radius: 4px;
-  font-style: italic;
-}
+    .subrayado {
+      background-color: #f8d0aa;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-style: italic;
+    }
   </style>
 </head>
 <body>
-
-  <!-- Idiomas -->
   <div id="language-toggle">
     <button class="lang-btn" onclick="toggleLanguages()">Idiomas</button>
     <div class="lang-list" id="lang-list">
@@ -395,7 +215,6 @@
     </div>
   </div>
 
-  <!-- Header -->
   <header>
     <a href="#inicio" class="logo">HananYouStudio</a>
     <nav>
@@ -409,82 +228,37 @@
     <a href="#contacto" class="contacto">Contáctanos</a>
   </header>
 
-  <div class="modern-carousel" id="modern-carousel">
-  <div class="carousel-image"><img src="yamaha.png" alt="Diseño Yamaha" /></div>
-  <div class="carousel-image"><img src="tenis.png" alt="Diseño deportivo" /></div>
-  <div class="carousel-image"><img src="tokyodrift.png" alt="Diseño Y2K" /></div>
-  <div class="carousel-image"><img src="revista.png" alt="Diseño deportivo" /></div>
-  <div class="carousel-image"><img src="rock.png" alt="Cartel Rock" /></div>
-  <div class="carousel-image"><img src="cutie.jpeg" alt="Diseño deportivo" /></div>
-  <div class="carousel-image"><img src="anime.png" alt="Diseño deportivo" /></div>
-</div>
-
-  <!-- Contenido -->
   <section class="content">
-  <h2 id="acerca" class="section-title" style="font-size: 23px; text-align: center;">
-  Explora nuestros diseños
-</h2>
-    <!-- Carrusel -->
-    <div class="carousel-container">
-      <button class="carousel-button prev">&#10094;</button>
-      <div class="carousel-track" id="carousel-track">
-        <div class="carousel-item"><img src="yamaha.png" alt="Diseño Yamaha" /></div>
-        <div class="carousel-item"><img src="tenis.png" alt="Diseño deportivo" /></div>
-        <div class="carousel-item"><img src="tokyodrift.png" alt="Diseño Y2K" /></div>
-        <div class="carousel-item"><img src="revista.png" alt="Diseño deportivo" /></div>
-        <div class="carousel-item"><img src="rock.png" alt="Cartel Rock" /></div>
-         <div class="carousel-item"><img src="cutie.jpeg" alt="Diseño deportivo" /></div>
-         <div class="carousel-item"><img src="anime.png" alt="Diseño deportivo" /></div>
-      </div>
-      <button class="carousel-button next">&#10095;</button>
+    <h2 id="acerca" class="section-title">Explora nuestros diseños</h2>
+    <div class="showcase-carousel">
+      <div class="showcase-item"><img src="yamaha.png" alt="Diseño Yamaha"></div>
+      <div class="showcase-item"><img src="tenis.png" alt="Diseño Tenis"></div>
+      <div class="showcase-item"><img src="tokyodrift.png" alt="Diseño Y2K"></div>
+      <div class="showcase-item"><img src="revista.png" alt="Diseño Revista"></div>
+      <div class="showcase-item"><img src="rock.png" alt="Diseño Rock"></div>
+      <div class="showcase-item"><img src="cutie.jpeg" alt="Diseño Cute"></div>
+      <div class="showcase-item"><img src="anime.png" alt="Diseño Anime"></div>
     </div>
   </section>
-  <!-- Contenido -->
-<section class="presentacion" id="sobre-han">
-  <h2 class="presentacion-titulo">¡Hola! Soy Han, la mente (y las manos) creativas detrás de</h2>
-  <h1 class="presentacion-logo">HananYouStudio</h1>
-  <p>
-    Como sugiere el nombre, esto va de Han… y de ti: un estudio donde el diseño fluye con tus ideas.
-  </p>
-  <p>
-    Con años de experiencia en diseño gráfico, he aprendido que un buen diseño no consiste en imponer un estilo, sino en adaptarse con creatividad, técnica y precisión a lo que cada cliente realmente necesita.
-  </p>
-  <p>
-    En <em>HananYouStudio</em>, el diseño es <span class="subrayado">fluido</span>: se moldea a ti. Tanto si tienes una idea clara como si apenas estás empezando, te ofrezco asesoría personalizada, propuestas visuales sólidas y resultados que comunican exactamente lo que quieres expresar.
-  </p>
-</section>
-  <!-- Scripts -->
-    
+
+  <section class="presentacion" id="sobre-han">
+    <h2 class="presentacion-titulo">¡Hola! Soy Han, la mente (y las manos) creativas detrás de</h2>
+    <h1 class="presentacion-logo">HananYouStudio</h1>
+    <p>Como sugiere el nombre, esto va de Han… y de ti: un estudio donde el diseño fluye con tus ideas.</p>
+    <p>Con años de experiencia en diseño gráfico, he aprendido que un buen diseño no consiste en imponer un estilo, sino en adaptarse con creatividad, técnica y precisión a lo que cada cliente realmente necesita.</p>
+    <p>En <em>HananYouStudio</em>, el diseño es <span class="subrayado">fluido</span>: se moldea a ti. Tanto si tienes una idea clara como si apenas estás empezando, te ofrezco asesoría personalizada, propuestas visuales sólidas y resultados que comunican exactamente lo que quieres expresar.</p>
+  </section>
+
   <script>
-    const track = document.getElementById("carousel-track");
-    const prev = document.querySelector(".carousel-button.prev");
-    const next = document.querySelector(".carousel-button.next");
-
-    prev.addEventListener("click", () => {
-      track.scrollBy({ left: -270, behavior: "smooth" });
-    });
-
-    next.addEventListener("click", () => {
-      track.scrollBy({ left: 270, behavior: "smooth" });
-    });
-
-    // Auto-scroll carrusel
-    setInterval(() => {
-      track.scrollBy({ left: 270, behavior: "smooth" });
-    }, 4000);
-
-    // Mostrar/Ocultar idiomas
     function toggleLanguages() {
       document.getElementById("lang-list").classList.toggle("show");
     }
+
+    document.addEventListener('contextmenu', function (e) {
+      if (e.target.tagName === 'IMG') {
+        e.preventDefault();
+      }
+    });
   </script>
-  <script>
-  // Bloquea clic derecho en imágenes
-  document.addEventListener('contextmenu', function (e) {
-    if (e.target.tagName === 'IMG') {
-      e.preventDefault();
-    }
-  });
-</script>
 </body>
 </html>
