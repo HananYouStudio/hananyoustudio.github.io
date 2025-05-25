@@ -198,6 +198,48 @@
       border-radius: 4px;
       font-style: italic;
     }
+    .carousel-container {
+  width: 100%;
+  overflow: hidden;
+  padding: 20px 0;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 24px;
+  animation: scroll 30s linear infinite;
+}
+
+.carousel-item {
+  flex: 0 0 auto;
+  width: 160px;
+  height: 240px;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  transform: perspective(600px) rotateY(-5deg);
+  transition: transform 0.5s ease;
+}
+
+.carousel-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  user-select: none;
+  pointer-events: none;
+  -webkit-user-drag: none;
+  display: block;
+  border-radius: 24px;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
   </style>
 </head>
 <body>
@@ -229,17 +271,28 @@
   </header>
 
   <section class="content">
-    <h2 id="acerca" class="section-title">Explora nuestros diseños</h2>
-    <div class="showcase-carousel">
-      <div class="showcase-item"><img src="yamaha.png" alt="Diseño Yamaha"></div>
-      <div class="showcase-item"><img src="tenis.png" alt="Diseño Tenis"></div>
-      <div class="showcase-item"><img src="tokyodrift.png" alt="Diseño Y2K"></div>
-      <div class="showcase-item"><img src="revista.png" alt="Diseño Revista"></div>
-      <div class="showcase-item"><img src="rock.png" alt="Diseño Rock"></div>
-      <div class="showcase-item"><img src="cutie.jpeg" alt="Diseño Cute"></div>
-      <div class="showcase-item"><img src="anime.png" alt="Diseño Anime"></div>
+  <h2 id="acerca" class="section-title">Explora nuestros diseños</h2>
+  <div class="carousel-container">
+    <div class="carousel-track">
+      <div class="carousel-item"><img src="yamaha.png" alt=""></div>
+      <div class="carousel-item"><img src="tenis.png" alt=""></div>
+      <div class="carousel-item"><img src="tokyodrift.png" alt=""></div>
+      <div class="carousel-item"><img src="revista.png" alt=""></div>
+      <div class="carousel-item"><img src="rock.png" alt=""></div>
+      <div class="carousel-item"><img src="cutie.jpeg" alt=""></div>
+      <div class="carousel-item"><img src="anime.png" alt=""></div>
+
+      <!-- duplicados para que el loop ruede sin cortes -->
+      <div class="carousel-item"><img src="yamaha.png" alt=""></div>
+      <div class="carousel-item"><img src="tenis.png" alt=""></div>
+      <div class="carousel-item"><img src="tokyodrift.png" alt=""></div>
+      <div class="carousel-item"><img src="revista.png" alt=""></div>
+      <div class="carousel-item"><img src="rock.png" alt=""></div>
+      <div class="carousel-item"><img src="cutie.jpeg" alt=""></div>
+      <div class="carousel-item"><img src="anime.png" alt=""></div>
     </div>
-  </section>
+  </div>
+</section>
 
   <section class="presentacion" id="sobre-han">
     <h2 class="presentacion-titulo">¡Hola! Soy Han, la mente (y las manos) creativas detrás de</h2>
